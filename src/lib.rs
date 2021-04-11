@@ -10,6 +10,9 @@ use spin_sleep::LoopHelper;
 
 /// The main structure of the engine core loop.
 /// It holds the data necessary to the execution of a game engine.
+/// # Generics:
+/// - SD: Type of the data passed to states.
+/// - F: Post update function.
 pub struct Engine<SD, F: Fn(&mut SD, &Time)> {
     loop_helper: LoopHelper,
     state_machine: StateMachine<SD>,
@@ -23,6 +26,8 @@ impl<SD, F: Fn(&mut SD, &Time)> Engine<SD, F> {
     /// The initial state and state data will be used to initialize the state machine.
     /// The post update function will be stored. It is called at the end of game frames.
     /// `max_fps` specifies the maximum number of frames that can happen within a second.
+    /// # Generics:
+    /// I: Initial state.
     pub fn new<I: State<SD> + 'static>(
         init_state: I,
         mut init_state_data: SD,
