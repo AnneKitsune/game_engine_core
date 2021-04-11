@@ -23,7 +23,12 @@ impl<SD, F: Fn(&mut SD, &Time)> Engine<SD, F> {
     /// The initial state and state data will be used to initialize the state machine.
     /// The post update function will be stored. It is called at the end of game frames.
     /// `max_fps` specifies the maximum number of frames that can happen within a second.
-    pub fn new<I: State<SD> + 'static>(init_state: I, mut init_state_data: SD, post_update: F, max_fps: f32) -> Self {
+    pub fn new<I: State<SD> + 'static>(
+        init_state: I,
+        mut init_state_data: SD,
+        post_update: F,
+        max_fps: f32,
+    ) -> Self {
         let loop_helper = LoopHelper::builder().build_with_target_rate(max_fps);
         let mut state_machine = StateMachine::default();
         let time = Time::default();
@@ -92,6 +97,15 @@ mod tests {
                 StateTransition::Quit
             }
         }
-        Engine::new(MyState, 0, |s, _| {*s+=1; assert_eq!(*s, 2);},1000.0).engine_loop();
+        Engine::new(
+            MyState,
+            0,
+            |s, _| {
+                *s += 1;
+                assert_eq!(*s, 2);
+            },
+            1000.0,
+        )
+        .engine_loop();
     }
 }
