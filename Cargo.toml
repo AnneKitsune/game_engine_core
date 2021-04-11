@@ -1,0 +1,13 @@
+[package]
+name = "game_engine_core"
+version = "0.1.0"
+authors = ["jojolepro <jojolepro@jojolepro.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+game_clock = { version = "1.0.0" }
+spin_sleep = "1.0.0"
+game_state_machine = { path = "../game_state_machine" }
+derive-new = "0.5.8"
