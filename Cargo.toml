@@ -1,6 +1,6 @@
 [package]
 name = "game_engine_core"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["Joël Lupien (Jojolepro) <jojolepro@jojolepro.com>"]
 edition = "2018"
 description = "The main loop of a game engine."
@@ -11,6 +11,6 @@ exclude = ["doc"]
 repository = "https://github.com/jojolepro/game_engine_core/"
 
 [dependencies]
-game_clock = "1.0.0"
+game_clock = "1.1.0"
 spin_sleep = "1.0.0"
 game_state_machine = "1.0.0"
