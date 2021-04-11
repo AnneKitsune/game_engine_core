@@ -36,7 +36,7 @@ impl State<i32> for MyState {
 }
 
 fn main() {
-    Engine::new(MyState, 0, |s, _| {*s+=1; assert_eq!(*s, 2);},1000.0)
+    Engine::new(MyState, 0, |_, _| {}, 1000.0)
         .engine_loop();
 }
 ```
