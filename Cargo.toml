@@ -1,6 +1,6 @@
 [package]
 name = "game_engine_core"
-version = "1.1.0"
+version = "1.1.1"
 authors = ["Joël Lupien (Jojolepro) <jojolepro@jojolepro.com>"]
 edition = "2018"
 description = "The main loop of a game engine."
