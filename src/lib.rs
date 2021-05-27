@@ -21,8 +21,10 @@ pub struct Engine<SD, F: Fn(&mut SD, &Time)> {
     /// engine.state_machine.is_running();
     /// ```
     pub state_machine: StateMachine<SD>,
-    state_data: SD,
-    time: Time,
+    /// The game data that we are using to drive the execution.
+    pub state_data: SD,
+    /// The inner clock keeping track of time.
+    pub time: Time,
     post_update: F,
 }
 
