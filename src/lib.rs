@@ -15,7 +15,12 @@ use spin_sleep::LoopHelper;
 /// - F: Post update function.
 pub struct Engine<SD, F: Fn(&mut SD, &Time)> {
     loop_helper: LoopHelper,
-    state_machine: StateMachine<SD>,
+    /// The inner state machine.
+    /// You can verify that it is still running using
+    /// ```rust,ignore
+    /// engine.state_machine.is_running();
+    /// ```
+    pub state_machine: StateMachine<SD>,
     state_data: SD,
     time: Time,
     post_update: F,
